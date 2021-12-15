@@ -1,8 +1,10 @@
-// import files from "./files.js";
+import { README, PACKAGE, INDEX } from "./files.js";
 import prompts from "prompts";
 import boxen from "boxen";
 import fs from "fs";
-import path from "path";
+import mkdirp from "mkdirp";
+
+const mkdir_sync = mkdirp.sync;
 
 const get_information = async () => {
     return new Promise(async (resolve, reject) => {
@@ -100,21 +102,29 @@ const prepare_card = (data) => {
 export default async () => {
     let response = await get_information();
     let title = `${response.name}'s card`;
-    let folder = `${response.name}-card`
+    let folder = `${response.name}-card`;
 
     let card = prepare_card(response);
+    let boxed = boxen(card, {
+        padding: 2,
+        margin: 1,
+        title: title,
+        titleAlignment: "center",
+    });
 
-    fs.mkdirSync(folder);
-    fs.writeFile(`${folder}/README.md`, README.replace(/\[\[NAME\]\]/, response.name))
-    fs.writeFile(`${folder}/package.json`, PACKAGE.replace(/\[\[NAME\]\]/, response.name).toLocaleLowerCase())
-    fs.writeFile(`${folder}/index.js`, PACKAGE.replace(/\[\[CARD\]\]/, card))
-
-    console.log(
-        boxen(card, {
-            padding: 2,
-            margin: 1,
-            title: title,
-            titleAlignment: "center",
-        })
+    mkdir_sync(folder);
+    fs.writeFileSync(
+        `${folder}/README.md`,
+        README.replace(/\[\[NAME\]\]/, response.name)
     );
+    fs.writeFileSync(
+        `${folder}/package.json`,
+        PACKAGE.replace(/\[\[NAME\]\]/, response.name).toLocaleLowerCase()
+    );
+    fs.writeFileSync(
+        `${folder}/index.js`,
+        INDEX.replace(/\[\[CARD\]\]/, boxed)
+    );
+
+    console.log(boxed);
 };

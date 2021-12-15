@@ -1,13 +1,12 @@
-
-const README = `
+export const README = `
 # Welcome to [[NAME]]'s card
 
 This is my own personal card!
 
-* Made thanks by [card-me]()
-`
+* Made thanks by [card-me](https://github.com/mauro-balades/card-me)
+`;
 
-const PACKAGE = `
+export const PACKAGE = `
 {
     "name": "card-[[NAME]]",
     "version": "1.0.0",
@@ -26,9 +25,10 @@ const PACKAGE = `
     }
   }
 
-`
+`;
 
-const INDEX = `
-#!/usr/bin/env node
-console.log(\`[[CARD]]\`) // DO NOT EDIT
-`
+export const INDEX = `#!/usr/bin/env node
+console.log(\`
+[[CARD]]
+\`) // DO NOT EDIT
+`;
