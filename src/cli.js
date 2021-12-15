@@ -17,21 +17,6 @@ const get_information = async () => {
                     response.length < 1 ? `Add a valid name` : true,
             },
             {
-                type: "select",
-                name: "face",
-                message: "Pick a face!",
-                choices: [
-                    { title: "ツ", value: "ツ" },
-                    { title: "˙ ͜ʟ˙", value: "˙ ͜ʟ˙" },
-                    { title: "╚(ಠ_ಠ)=┐", value: "╚(ಠ_ಠ)=┐" },
-                    { title: "(¬_¬)", value: "(¬_¬)" },
-                    { title: "｡◕‿◕｡", value: "｡◕‿◕｡" },
-                    { title: "ಠ~ಠ", value: "ಠ~ಠ" },
-                    { title: "^̮^", value: "^̮^" },
-                    { title: "ʕ•ᴥ•ʔ", value: "ʕ•ᴥ•ʔ" },
-                ],
-            },
-            {
                 type: "text",
                 name: "work",
                 message: `In what are you working right now?`,
@@ -106,7 +91,7 @@ export default async () => {
 
     let card = prepare_card(response);
     let boxed = boxen(card, {
-        padding: 2,
+        padding: 1,
         margin: 1,
         title: title,
         titleAlignment: "center",
