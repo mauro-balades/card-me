@@ -100,15 +100,15 @@ export default async () => {
     mkdir_sync(folder);
     fs.writeFileSync(
         `${folder}/README.md`,
-        README.replace(/\[\[NAME\]\]/, response.name)
+        README.replace(/\[\[NAME\]\]/g, response.name)
     );
     fs.writeFileSync(
         `${folder}/package.json`,
-        PACKAGE.replace(/\[\[NAME\]\]/, response.name).toLocaleLowerCase()
+        PACKAGE.replace(/\[\[NAME\]\]/g, response.name).toLocaleLowerCase()
     );
     fs.writeFileSync(
         `${folder}/index.js`,
-        INDEX.replace(/\[\[CARD\]\]/, boxed)
+        INDEX.replace(/\[\[CARD\]\]/g, boxed)
     );
 
     console.log(boxed);

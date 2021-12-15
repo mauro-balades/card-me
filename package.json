@@ -1,6 +1,6 @@
 {
     "name": "card-me",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Create personal cards for your profile",
     "main": "index.js",
     "scripts": {
