@@ -54,7 +54,7 @@ To install `card-me`, you will need [npm](https://nodejs.org/) installed. Once y
 npm i -g card-me
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ppHh_sRo-AU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+* [Explanatory video](https://youtu.be/ppHh_sRo-AU)
 
 ## License
 
